@@ -57,6 +57,9 @@ int debug_level = MSG_NONE;
 /** Convert character to integer */
 #define CHAR2INT(x) (((x) >= 'A') ? ((x) - 'A' + 10) : ((x) - '0'))
 
+/** Default 80211d domain configuration file */
+#define DEFAULT_80211D_CONF_FILE "/usr/share/uaputl/80211d_domain.conf"
+
 /****************************************************************************
         Global variables
 ****************************************************************************/
@@ -409,7 +412,7 @@ parse_domain_file(char *country, IEEEtypes_SubbandSet_t * sub_bands)
     char third;
     char country2[3];
 
-    fp = fopen("80211d_domain.conf", "r");
+    fp = fopen(DEFAULT_80211D_CONF_FILE, "r");
     if (fp == NULL) {
         printf("File opening Error\n");
         return UAP_FAILURE;
@@ -444,7 +447,7 @@ parse_domain_file(char *country, IEEEtypes_SubbandSet_t * sub_bands)
     }
 
     if (!found) {
-        printf("No match found for Country = %s in the 80211d_domain.conf \n",
+        printf("No match found for Country = %s in the "DEFAULT_80211D_CONF_FILE "\n",
                country);
         fclose(fp);
         found = 0;
@@ -493,7 +496,7 @@ parse_domain_file(char *country, IEEEtypes_SubbandSet_t * sub_bands)
                 sub_bands[no_of_sub_band++].MaxTxPwr = (u8) A2HEXDECIMAL(str);
                 break;
             default:
-                printf("ERR: Incorrect 80211d_domain.conf file\n");
+                printf("ERR: Incorrect " DEFAULT_80211D_CONF_FILE " file\n");
                 fclose(fp);
                 return UAP_FAILURE;
             }
