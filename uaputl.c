@@ -4008,7 +4008,7 @@ apcmd_read_eeprom(int argc, char *argv[])
 void
 print_regrdwr_usage(void)
 {
-    printf("\nUsage : uaputl.exe regrdwr <TYPE> <OFFSET> [value]\n");
+    printf("\nUsage : uaputl regrdwr <TYPE> <OFFSET> [value]\n");
     printf("\nTYPE Options: 0     - read/write MAC register");
     printf("\n              1     - read/write BBP register");
     printf("\n              2     - read/write RF register");
@@ -4064,7 +4064,7 @@ apcmd_regrdwr(int argc, char *argv[])
 void
 print_memaccess_usage(void)
 {
-    printf("\nUsage : uaputl.exe memaccess <ADDRESS> [value]\n");
+    printf("\nUsage : uaputl memaccess <ADDRESS> [value]\n");
     printf("\nRead/Write memory location");
     printf("\nADDRESS: Address of the memory location to be read/written");
     printf("\nValue  : Value to be written at that address\n");
@@ -4177,7 +4177,7 @@ apcmd_memaccess(int argc, char *argv[])
 void
 print_sys_debug_usage(void)
 {
-    printf("\nUsage : uaputl.exe sys_debug <subcmd> [parameter]\n");
+    printf("\nUsage : uaputl sys_debug <subcmd> [parameter]\n");
     printf("\nSet/Get debug parameter");
     printf("\nsubcmd: used to set/get debug parameters or set user scan");
     printf("\nparameter  :  parameters for specific subcmd");
@@ -4438,9 +4438,9 @@ static void
 print_tool_usage(void)
 {
     int i;
-    printf("uaputl.exe - uAP utility ver %s\n", UAP_VERSION);
+    printf("uaputl - uAP utility ver %s\n", UAP_VERSION);
     printf("Usage:\n"
-           "\tuaputl.exe [options] <command> [command parameters]\n");
+           "\tuaputl [options] <command> [command parameters]\n");
     printf("Options:\n"
            "\t--help\tDisplay help\n"
            "\t-v\tDisplay version\n"
@@ -4450,7 +4450,7 @@ print_tool_usage(void)
         printf("\t%-4s\t\t%s\n", ap_command[i].cmd, ap_command[i].help);
     printf("\n"
            "For more information on the usage of each command use:\n"
-           "\tuaputl.exe <command> --help\n");
+           "\tuaputl <command> --help\n");
 }
 
 /****************************************************************************
@@ -5526,7 +5526,7 @@ main(int argc, char *argv[])
             printf("dev_name:%s\n", dev_name);
             break;
         case 'v':
-            printf("uaputl.exe - uAP utility ver %s\n", UAP_VERSION);
+            printf("uaputl - uAP utility ver %s\n", UAP_VERSION);
             exit(0);
         case 'd':
             debug_level = strtoul(optarg, NULL, 10);
